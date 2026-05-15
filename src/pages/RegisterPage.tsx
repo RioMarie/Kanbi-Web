@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useRegister } from "../services/auth-service";
 
 function EyeIcon({ open }: { open: boolean }) {
@@ -68,7 +68,6 @@ function KanbiLogo({ size = "md" }: { size?: "sm" | "md" }) {
 export default function RegisterPage() {
   if (localStorage.getItem("token")) return <Navigate to="/" replace />;
 
-  const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "", confirm: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [validationError, setValidationError] = useState("");
